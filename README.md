@@ -20,11 +20,11 @@ Node, NPM, Yo, Grunt, Bower
 
 ### Local Setup ###
 - npm install
-- grunt build
+- set Firebase url in app/scripts/config.js 
 
 ### Firebase Setup ###
-- create a new firebase app
-- setup simple login email and password.
+- Create a new firebase app
+- Setup simple login email and password.
 - In the password reset email put the following link to reset password
 - http://APP_URL.com/#/new-password/%EMAIL%/%TOKEN%
 
