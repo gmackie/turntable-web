@@ -19,14 +19,13 @@ Includes:
 Node, NPM, Yo, Grunt, Bower
 
 ### Local Setup ###
-npm install
-bower install
-grunt build
+- npm install
+- grunt build
 
 ### Firebase Setup ###
-create a new firebase app
-setup simple login email and password.
-In the password reset email put the following link to reset password
-http://APP_URL.com/#/new-password/%EMAIL%/%TOKEN%
+- create a new firebase app
+- setup simple login email and password.
+- In the password reset email put the following link to reset password
+- http://APP_URL.com/#/new-password/%EMAIL%/%TOKEN%
 
 
