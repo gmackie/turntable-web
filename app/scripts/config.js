@@ -33,7 +33,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.otherwise({redirectTo: '/'});
 }])
 .constant('loginRedirectPath', '/login') 
-.constant('FBURL', 'https://FIREBASE_URL.firebaseio.com')
+.constant('FBURL', 'https://angularfirestartdemo.firebaseio.com/')
 .run(['loginService','FBURL', '$rootScope', function(loginService, FBURL, $rootScope) {
 	$rootScope.auth = loginService.init('/login');	
 	$rootScope.FBURL = FBURL;
