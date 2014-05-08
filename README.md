@@ -29,6 +29,5 @@ Node, NPM, Yo, Grunt, Bower
 - http://APP_URL.com/#/new-password/%EMAIL%/%TOKEN%
 
 ### Live Demo ###
-
-
+https://angularfirestartdemo.firebaseapp.com/
 
