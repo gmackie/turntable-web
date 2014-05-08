@@ -37,7 +37,7 @@ angular.module('angFireApp.controllers.register', [])
 	};
 	
 	function assertValidLoginAttempt() {
-		if(!$scope.name || !$scope.email || !$scope.pass || $scope.pass !== $scope.confirm || !$scope.companyName) {
+		if(!$scope.name || !$scope.email || !$scope.pass || $scope.pass !== $scope.confirm) {
 			$timeout(function(){
 				$scope.err = 'Please fill out the entire form';
 				$scope.newAcctLoading = false;
