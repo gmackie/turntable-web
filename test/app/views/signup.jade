@@ -1,0 +1,26 @@
+navbar(title="Sign Up")
+
+#signup.container.app-container
+
+	.signup-info
+
+		.signup-error {{error}}
+
+		form(ng-submit="attemptSignup()")
+			
+			input.form-control(type="email", placeholder="Email address", autocorrect="off", autocapitalize="off", ng-model="email")
+				
+			.input-group.input-group-bottom
+				input.form-control(type="password", placeholder="Password", autocorrect="off", autocapitalize="off", ng-model="password", ng-hide="showPword")
+					
+				input.form-control(type="text", placeholder="Password", autocorrect="off", autocapitalize="off", ng-model="password", ng-show="showPword")
+				span.input-group-btn
+					button(type="button", ng-click="showPword = !showPword").btn.btn-default {{showPword ? "hide" : "show"}}
+	
+			button.btn.btn-lg.btn-primary.btn-block(type="submit", ng-disabled="signupLoading") 
+				//- todo: need to animate this transition	
+				span(ng-hide="signupLoading") Complete Signup 
+				i(ng-show="signupLoading").fa-spinner.fa-spin  
+				span(ng-show="signupLoading")  Trying to signup...	
+
+

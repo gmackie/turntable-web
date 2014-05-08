@@ -1,0 +1,26 @@
+navbar(title="Login")
+
+#login.container.app-container
+
+	//TODO: Error State 
+	.login-error {{error}}
+
+	form(ng-submit="attemptLogin()")
+	
+		input.form-control(type="email", placeholder="Email address", autofocus="", autocorrect="off", autocapitalize="off", ng-model="username")
+		.input-group
+			input.form-control(type="password", placeholder="Password", autocorrect="off", autocapitalize="off", ng-model="password", ng-hide="showPword")
+			input.form-control(type="text", placeholder="Password", autocorrect="off", autocapitalize="off", ng-model="password", ng-show="showPword")
+			span.input-group-btn
+				button(type="button", ng-click="togglePasswordShow()").btn.btn-default {{showPword ? "hide" : "show"}}
+
+		button.btn.btn-lg.btn-primary.btn-block(type="submit", ng-disabled="loginLoading") 
+			//- todo: need to animate this transition	
+			span(ng-hide="loginLoading") sign in
+			i(ng-show="loginLoading").fa-spinner.fa-spin  
+			span(ng-show="loginLoading")  Trying to sign in...	
+
+	p.forgot-password  
+		a(href="#/forgot-password") Forgot Password 
+	p.create-account	
+		a(href="#/register") Create New Site & Account

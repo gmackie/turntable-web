@@ -1,0 +1,33 @@
+navbar
+
+#login.container.app-container
+	.col-xs-offset-0.col-sm-offset-1.col-md-offset-1.col-xs-12.col-sm-4.col-md-4.col-lg-4
+		h2 Sign In
+
+		form(role="form", ng-submit="login()")
+			
+			.form-group
+				input.form-control.email-input(placeholder="Email", type="text", ng-model="email", autofocus)
+					
+			.form-group
+				input.form-control.password-input(placeholder="Password", type="password", ng-model="pass")
+
+			//- TODO Remember me feature
+			//- .checkbox
+				input(type="checkbox", ng-model="rememberMe")
+				label Remember Me
+
+			button.btn.btn-primary.btn-lg.btn-block(type="submit", ng-disabled="loginLoading")
+				span(ng-hide="loginLoading") Sign in
+				i(ng-show="loginLoading").fa.fa-spinner.fa-spin 
+				span(ng-show="loginLoading")  Trying to sign in...	
+		
+		.text-error-container	
+			p.text-danger {{err}}
+	
+		p.other-links
+			a(href='#/forgot') I forgot my Password
+		p.other-links New? 
+			a(href='#/register') Create an Account.
+
+

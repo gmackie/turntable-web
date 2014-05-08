@@ -1,0 +1,65 @@
+/* Login */
+@import "mixins";
+
+#login {
+
+	> .login-error {
+		text-align: center;
+		height: 100px;
+		padding-top: 100px;
+		color: #D9534F;	
+	}
+
+	> form {
+		max-width: 330px;
+		padding: 30px 15px 15px;
+		margin: 0 auto;
+		
+		.form-control {
+			position: relative;
+			font-size: 16px;
+			height: auto;
+			padding: 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			
+			&:focus {
+				z-index: 2;
+			}
+		}
+		
+		> input[type="email"] {
+			margin-bottom: -1px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		> .input-group {
+			> .input-group-btn {
+				vertical-align: top;
+				> button {
+					height: 44px;	
+					border-top-right-radius: 0px;	
+				}
+			}
+			.form-control {	
+				margin-bottom: 10px;
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 4px;
+			}
+		}
+		
+		button[type="submit"] {}
+	}
+	
+	.forgot-password {
+		text-align: center;	
+	}
+	
+	.create-account {
+		text-align: center;	
+	}
+}
+

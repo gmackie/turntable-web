@@ -1,0 +1,49 @@
+<navbar brand-text="All Sites" title="{{siteName}}" showback="true" notfixed="true"></navbar>
+<div id="editor" class="container app-container">
+  <div id="menu">
+    <div class="toolbar">
+      <h4 class="title">Site Editting Tools	</h4>
+      <div ng-click="showSettings()" class="settings btn btn-default"> <i class="fa fa-wrench fa-2x"></i>
+        <h5>Settings </h5>
+      </div>
+      <div ng-click="save()" class="save btn btn-default"> <i class="fa fa-save fa-2x"></i>
+        <h5>Save </h5>
+      </div>
+      <div ng-click="publishSite()" class="publish btn btn-default"> <i class="fa fa-globe fa-2x">	</i>
+        <h5>Publish</h5>
+      </div>
+    </div>
+    <div class="separator">Site Content</div>
+    <div site-content-menu-size="site-content-menu-size" class="site-content">
+      <div class="pages">		
+        <div ng-repeat="page in domain.pages" class="page"> 
+          <page-menu-row></page-menu-row>
+          <div ng-show="$parent.visiblePage === $index ? true:false" class="blocks">
+            <div html-sortable="menuSortableOpts" ng-model="page.blocks" class="blocks-sortable-container"> 	
+              <div draggable="true" ng-repeat="block in page.blocks" class="block block-row menu-row">
+                <editor-menu-row></editor-menu-row>
+              </div>
+            </div>
+            <div ng-click="addBlock($index)" class="block block-row menu-row"> <i class="fa fa-plus pull-left"></i>
+              <div class="text-content add-block pull-left">Add Block </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-click="addPage()" class="add-page btn btn-default"><i class="fa fa-file-o"></i><span> Add Page	</span></div>
+    </div>
+  </div>
+  <div id="editor-area" class="theme-default">
+    <div ng-repeat="page in domain.pages" ng-show="$index == $parent.visiblePage ? true:false">
+      <raf-header></raf-header>
+      <div ng-repeat="block in page.blocks" ng-switch="" on="block.type" class="raf-blocks-container">
+        <raf-form ng-switch-when="raf-form" domain-uid="{{siteName}}" page-uid="{{page.uid}}" block="block"></raf-form>
+        <raf-big-lead ng-switch-when="raf-big-lead" domain-uid="{{siteName}}" page-uid="{{page.uid}}" block="block"></raf-big-lead>
+        <raf-slideshow ng-switch-when="raf-slideshow" domain-uid="{{siteName}}" page-uid="{{page.uid}}" block="block"></raf-slideshow>
+        <raf-vertical-content-grid ng-switch-when="raf-vertical-content-grid" domain-uid="{{siteName}}" page-uid="{{page.uid}}" block="block"></raf-vertical-content-grid>
+        <raf-horizontal-content-grid ng-switch-when="raf-horizontal-content-grid" domain-uid="{{siteName}}" page-uid="{{page.uid}}" block="block"></raf-horizontal-content-grid>
+      </div>
+      <raf-footer></raf-footer>
+    </div>
+  </div>
+</div>

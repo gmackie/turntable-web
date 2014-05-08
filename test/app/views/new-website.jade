@@ -1,0 +1,42 @@
+navbar(title="Choose A Theme")
+
+#new-website.container.app-container
+
+	.themes.row(ng-show="showThemes")
+			.theme.col-xs-12.col-sm-6.col-md-4.col-lg-4(ng-repeat="theme in themes")
+				div
+					img(src="/images/theme-temp.png", alt="theme pic")	
+					button(type="button", ng-click="selectTheme(theme)").btn.btn-lg.btn-default Select Theme
+	
+	.signup-info(ng-hide="showThemes")
+		
+		.signup-error {{error}}
+		
+		form(ng-submit="attemptSignup()")
+			
+			input.form-control(type="email", placeholder="Email address", autocorrect="off", autocapitalize="off", ng-model="email")
+				
+			.input-group
+				input.form-control(type="password", placeholder="Password", autocorrect="off", autocapitalize="off", ng-model="password", ng-hide="showPword")
+				input.form-control(type="text", placeholder="Password", autocorrect="off", autocapitalize="off", ng-model="password", ng-show="showPword")
+				span.input-group-btn
+					button(type="button", ng-click="showPword = !showPword").btn.btn-default {{showPword ? "hide" : "show"}}
+				
+			.input-group
+				input.form-control(type="text", disabled, placeholder="Theme", autocorrect="off", autocapitalize="off", ng-model="siteTheme")
+				span.input-group-btn
+					button(type="button", ng-click="toggleShowThemes()").btn.btn-default Change
+			
+			.input-group.input-group-bottom
+				input.form-control(type="text", placeholder="Raftee Url", autocorrect="off", autocapitalize="off", ng-model="rafteeUrl")
+				span.input-group-addon .raftee.com	
+
+			p Add Your Own Domain Later
+	
+			button.btn.btn-lg.btn-primary.btn-block(type="submit", ng-disabled="signupLoading") 
+				//- todo: need to animate this transition	
+				span(ng-hide="signupLoading") Complete Signup 
+				i(ng-show="signupLoading").fa-spinner.fa-spin  
+				span(ng-show="signupLoading")  Trying to signup...	
+
+

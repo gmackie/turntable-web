@@ -1,0 +1,47 @@
+.raf-block.raf-slideshow
+	h1 Slideshow
+
+	h4 Block Title 
+	input(type="text", placeholder="Title", ng-model="block.title")
+		
+	br
+	br
+
+	h4.pull-left Background Type 
+	select.pull-left(ng-model="block.bgType")
+		option image
+		option color
+		option gradient 
+
+	br
+	br
+
+	h4.pull-left Background 
+	input.pull-left(type="text", placeholder="Background Url", ng-model="block.bg")
+		
+	br
+	br
+
+	h4.pull-left Images
+	br
+	br
+	div(ng-repeat="image in block.images")
+		Slide	
+		p.pull-left Title	
+		input.pull-left(ng-model="image.title")
+		p.pull-left description 
+		textarea.pull-left(ng-model="image.description")
+		p.pull-left Image URL 
+		input.pull-left(ng-model="image.url")
+		.btn.btn-default.pull-left(ng-click="deleteImage($index)") Delete
+		br
+		br
+		br
+		br
+	
+	.btn.btn-default(ng-click="addImage()") Add Image
+	
+	br
+	br
+
+	.btn.btn-default(ng-click="saveBlock()") Save

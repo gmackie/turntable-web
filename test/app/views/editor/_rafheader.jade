@@ -1,0 +1,14 @@
+.raf-header
+	p.pull-left Logo URL
+	input.pull-left(placeholder="http://google.com/images", ng-model="domain.header.logo") Add Logo
+
+	p.pull-left Site Title 
+	input.pull-left(placeholder="Site Title", ng-model="domain.header.title")
+
+	p.pull-left Header Theme 
+	select(ng-model="domain.header.theme")
+		option light
+		option dark
+		option transparent
+		
+	.btn.btn-default(ng-click="saveHeader()").pull-right Save

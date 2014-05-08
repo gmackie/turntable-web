@@ -1,0 +1,17 @@
+<navbar title="Login"></navbar>
+<div id="login" class="container app-container">
+  <!--TODO: Error State -->
+  <div class="login-error">{{error}}</div>
+  <form ng-submit="attemptLogin()">
+    <input type="email" placeholder="Email address" autofocus="" autocorrect="off" autocapitalize="off" ng-model="username" class="form-control">
+    <div class="input-group">
+      <input type="password" placeholder="Password" autocorrect="off" autocapitalize="off" ng-model="password" ng-hide="showPword" class="form-control">
+      <input type="text" placeholder="Password" autocorrect="off" autocapitalize="off" ng-model="password" ng-show="showPword" class="form-control"><span class="input-group-btn">
+        <button type="button" ng-click="togglePasswordShow()" class="btn btn-default">{{showPword ? "hide" : "show"}}</button></span>
+    </div>
+    <button type="submit" ng-disabled="loginLoading" class="btn btn-lg btn-primary btn-block"> <span ng-hide="loginLoading">sign in</span><i ng-show="loginLoading" class="fa-spinner fa-spin"> </i><span ng-show="loginLoading"> Trying to sign in...	</span>
+    </button>
+  </form>
+  <p class="forgot-password"> <a href="#/forgot-password">Forgot Password </a></p>
+  <p class="create-account">	<a href="#/register">Create New Site & Account</a></p>
+</div>

@@ -1,0 +1,29 @@
+navbar(title="Account Settings", headerurl="/", showback="true", brand-text="Back To Dashboard", hidelogo="true")
+
+#user-settings.container.app-container
+	
+	.col-xs-offset-0.col-sm-offset-1.col-md-offset-1.col-xs-12.col-sm-4.col-md-4.col-lg-4
+
+		h2 Edit User Account 
+		.form-group
+			input.form-control(placeholder="Full Name", type="text", ng-model="user.name", tooltip="Full Name", tooltip-trigger="focus", tooltip-placement="right")
+		hr
+
+		h2 Change Password 
+		form(ng-submit="changePassword()")
+			.form-group
+				input.form-control(placeholder="Old Password", type="password", ng-model="pass.oldpass", tooltip="Old Password", tooltip-trigger="focus", tooltip-placement="right")
+			.form-group
+				input.form-control(placeholder="New Password", type="password", ng-model="pass.newpass", tooltip="New Password", tooltip-trigger="focus", tooltip-placement="right")
+			.form-group
+				input.form-control(placeholder="Confirm Password", type="password", ng-model="pass.confirm", tooltip="Confirm New Password", tooltip-trigger="focus", tooltip-placement="right")
+
+			button(type="submit", ng-disabled="changeLoading").btn.btn-lg.btn-primary.btn-block 
+				span(ng-hide="changeLoading") Change Password
+				i(ng-show="changeLoading").fa.fa-spinner.fa-spin 
+				span(ng-show="changeLoading")  Trying to change...	
+
+		.text-error-container	
+			p(class="{{err == 'success' ? 'text-success':'text-danger'}}") {{err}}
+
+

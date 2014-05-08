@@ -1,0 +1,11 @@
+.navbar.navbar-default-inverted.navbar-fixed-top(role="navigation", class="{{zNone ? 'no-z-index':''}}")
+	.navbar-inner
+		.navbar-header.pull-left
+			a(href="/#/{{headerurl}}")
+				i.fa.fa-angle-left.pull-left(ng-show="showback")
+				.navbar-logo.pull-left	
+					h1 
+						span(ng-show="false") Raftee - Beautiful, Free Mobile Websites	
+				.navbar-brand.pull-left {{brandText ? brandText : 'Raftee'}}
+		.navbar-rightside.pull-right(ng-show="showrightside")
+		.navbar-title {{title}}

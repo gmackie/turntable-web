@@ -1,0 +1,37 @@
+.raf-block.raf-big-lead
+	h1 Big Lead Block 
+	
+	h4.pull-left Block Lead Text
+	input.pull-left(type="text", placeholder="Lead Text", ng-model="block.title")
+
+	br
+	br
+	br
+
+	h4.pull-left Block Sub Text
+	.pull-left(type="text", placeholder="Lead Subtitle/subtext", ng-model="block.subTitle", contenteditable="true", options-box)
+		
+	br
+	br
+	br
+	br
+	br
+
+	h4.pull-left Background Type 
+	select.pull-left(ng-model="block.bgType")
+		option image
+		option color
+		option gradient 
+
+	br
+	br
+	br
+
+	h4.pull-left Background 
+	input.pull-left(type="text", placeholder="Background Url", ng-model="block.bg")
+		
+	br
+	br
+	br
+
+	.btn.btn-default(ng-click="saveBlock()") Save

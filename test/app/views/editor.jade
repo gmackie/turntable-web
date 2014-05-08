@@ -1,0 +1,61 @@
+navbar(brand-text="All Sites", title="{{siteName}}", showback="true", z-none="true")
+
+#editor.container.app-container
+	#menu
+
+		.toolbar
+			h4.title Site Editting Tools	
+			.settings.btn.btn-default(ng-click="showSettings()") 
+				i.fa.fa-wrench.fa-2x
+				h5 Settings 
+			.save.btn.btn-default(ng-click="saveSite()") 
+				i.fa.fa-save.fa-2x
+				h5 Save 
+			.publish.btn.btn-default(ng-click="publishSite()") 
+				i.fa.fa-globe.fa-2x	
+				h5 Publish
+
+		.separator Site Content
+
+		.site-content(site-content-menu-size)
+			.pages		
+				.page(ng-repeat="page in domain.pages") 
+					page-menu-row
+
+					.blocks(ng-show="$parent.visiblePage === $index ? true:false")
+						.blocks-sortable-container(html-sortable="menuSortableOpts", ng-model="page.blocks")  	
+							.block.block-row.menu-row(draggable="true", ng-repeat="block in page.blocks")
+								editor-menu-row
+	
+						.block.block-row.menu-row(ng-click="$parent.addBlockModalVis = true") 
+							i.fa.fa-plus.pull-left
+							div.text-content.add-block.pull-left Add Block 
+			
+			.add-page.btn.btn-default(ng-click="addPage()")
+				i.fa.fa-file-o
+				span  Add Page	
+
+	#editor-area.theme-default
+		div(ng-repeat="page in domain.pages", ng-show="$index == $parent.visiblePage ? true:false")
+			raf-header
+			.raf-blocks-container(ng-repeat="block in page.blocks", ng-switch on="block.type")
+				raf-form(ng-switch-when="raf-form", domain-uid="{{siteName}}",page-uid="{{page.uid}}", block="block")
+				raf-big-lead(ng-switch-when="raf-big-lead", domain-uid="{{siteName}}",page-uid="{{page.uid}}", block="block")
+				raf-slideshow(ng-switch-when="raf-slideshow", domain-uid="{{siteName}}",page-uid="{{page.uid}}", block="block")
+				raf-vertical-content-grid(ng-switch-when="raf-vertical-content-grid", domain-uid="{{siteName}}",page-uid="{{page.uid}}", block="block")
+				raf-horizontal-content-grid(ng-switch-when="raf-horizontal-content-grid", domain-uid="{{siteName}}",page-uid="{{page.uid}}", block="block")
+			raf-footer
+	
+	.large-modal(ng-show="addBlockModalVis")
+		.large-modal-header
+			i.fa.fa-times.large-modal-close-btn(ng-click="addBlockModalVis = false")
+			.title Choose Block
+		.large-modal-contents
+			p(ng-click="addBlock('lead')") Lead Block
+			p(ng-click="addBlock('horizontalGrid')") Horizontal Media Grid
+			p(ng-click="addBlock('verticalGrid')") Vertical Media Grid
+	
+	.modal-screen-overlay(ng-click="addBlockModalVis = false", ng-show="addBlockModalVis")
+
+
+

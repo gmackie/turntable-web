@@ -1,0 +1,60 @@
+doctype 5 
+html.no-js
+	//if lt IE 7
+		html.no-js.lt-ie9.lt-ie8.lt-ie7
+	//if IE 7
+		html.no-js.lt-ie9.lt-ie8
+	//if IE 8
+		html.no-js.lt-ie9
+	//if gt IE 8
+		html.no-js
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+		title Happy Fun Time
+		meta(name="description", content="")
+		meta(name="viewport", content="width=device-width")
+		//Place favicon.ico and apple-touch-icon.png in the root directory
+
+		link(rel="stylesheet", href="http://netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.css")
+
+		// build:css styles/style.css 
+		link(rel="stylesheet", href="styles/bootstrap.css")
+		link(rel="stylesheet", href="styles/main.css")
+		link(rel="stylesheet", href="styles/dashboard.css")
+		link(rel="stylesheet", href="styles/new-website.css")
+		link(rel="stylesheet", href="styles/signup.css")
+		link(rel="stylesheet", href="styles/login.css")
+		link(rel="stylesheet", href="styles/forgot-password.css")
+		link(rel="stylesheet", href="styles/reset-password.css")
+		link(rel="stylesheet", href="styles/verify-account.css")
+		link(rel="stylesheet", href="styles/settings.css")
+		link(rel="stylesheet", href="styles/editor.css")
+		link(rel="stylesheet", href="styles/grande.css")
+		// endbuild 
+	
+	body.desktop(ng-app="rafteeApp")
+		//if lt IE 9
+			script(src="components/es5-shim/es5-shim.js")
+			script src="components/json3/lib/json3.min.js")
+
+		div.ng-view
+
+		//- jquery
+		script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+
+		//- Angular
+		script(src="http://code.angularjs.org/1.2.6/angular.min.js")
+		script(src="http://code.angularjs.org/1.2.6/angular-resource.min.js")
+		script(src="http://code.angularjs.org/1.2.6/angular-cookies.min.js")
+		script(src="http://code.angularjs.org/1.2.6/angular-sanitize.min.js")
+		script(src="http://code.angularjs.org/1.2.6/angular-route.min.js")
+		script(src="components/grande/grande.js")
+		script(src="/components/html5sortable/html.sortable.min.0.1.0.js")
+		script(src="/components/html5sortable/html.sortable.angular.min.0.1.0.js")
+		script(src="/components/bootstrap-ui/ui-bootstrap-custom-0.7.0.min.js")
+		script(src="/components/bootstrap-ui/ui-bootstrap-custom-tpls-0.7.0.min.js")
+
+		//Raftee App Javascript
+		script(src="scripts/scripts.js")
+

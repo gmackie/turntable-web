@@ -1,0 +1,103 @@
+
+/* New Website */
+@import "mixins";
+
+#new-website {
+	> .themes{
+		margin-left: 0;
+		margin-right: 0;
+		
+		.theme {
+			list-style: none;	
+			padding: 0;
+
+			div {
+				width: 90%;
+				margin: 5%;
+				background: #ffffff;
+				border: 1px solid #d8d8d8; 
+				.border-radius(3px);
+				.box-sizing();
+				img {
+					width: 90%;
+					margin: 5%;
+					border: 1px solid #d8d8d8; 
+				}
+				button {
+					margin: 0 33% 20px;	
+				}
+			}
+		}
+
+	}
+
+	> .signup-info {
+		> .signup-error {
+			text-align: center;
+			height: 100px;
+			padding-top: 100px;
+			color: #D9534F;	
+		}
+		> form {
+			max-width: 330px;
+			padding: 30px 15px 15px;
+			margin: 0 auto;
+			
+			> .form-control:nth-child(1) {
+				border-top-right-radius: 4px;	
+				border-top-left-radius: 4px;
+			}
+			
+			p {
+				text-align: center;
+				font-size: 12px;
+				margin-top: 10px;	
+			}
+
+			> .input-group-bottom {
+				.form-control {
+					border-bottom-left-radius: 4px;
+				}
+				span {
+					border-bottom-right-radius: 4px !important;	
+				}
+			}
+			
+			.form-control {
+				position: relative;
+				font-size: 16px;
+				height: auto;
+				padding: 10px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-top-right-radius: 0px;	
+				border-top-left-radius: 0;
+				border-bottom-right-radius: 0px;	
+				border-bottom-left-radius: 0;
+				
+				&:focus {
+					z-index: 2;
+				}
+			}
+			> .input-group {
+				> .input-group-btn {
+					vertical-align: top;
+					> button {
+						height: 44px;	
+						border-top-right-radius: 0px;	
+						border-bottom-right-radius: 0px;	
+					}
+				}
+				> .input-group-addon {
+					border-top-right-radius: 0px;	
+					border-bottom-right-radius: 0px;	
+				}
+			}
+			> button {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+

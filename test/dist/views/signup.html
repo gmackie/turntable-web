@@ -1,0 +1,16 @@
+<navbar title="Sign Up"></navbar>
+<div id="signup" class="container app-container">
+  <div class="signup-info">
+    <div class="signup-error">{{error}}</div>
+    <form ng-submit="attemptSignup()">
+      <input type="email" placeholder="Email address" autocorrect="off" autocapitalize="off" ng-model="email" class="form-control">
+      <div class="input-group input-group-bottom">
+        <input type="password" placeholder="Password" autocorrect="off" autocapitalize="off" ng-model="password" ng-hide="showPword" class="form-control">
+        <input type="text" placeholder="Password" autocorrect="off" autocapitalize="off" ng-model="password" ng-show="showPword" class="form-control"><span class="input-group-btn">
+          <button type="button" ng-click="showPword = !showPword" class="btn btn-default">{{showPword ? "hide" : "show"}}</button></span>
+      </div>
+      <button type="submit" ng-disabled="signupLoading" class="btn btn-lg btn-primary btn-block"> <span ng-hide="signupLoading">Complete Signup </span><i ng-show="signupLoading" class="fa-spinner fa-spin"> </i><span ng-show="signupLoading"> Trying to signup...	</span>
+      </button>
+    </form>
+  </div>
+</div>

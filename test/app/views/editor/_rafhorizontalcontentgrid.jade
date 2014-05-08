@@ -1,0 +1,46 @@
+.raf-block.raf-horizontal-content-grid
+	h1 Horizontal Content Grid	
+
+	h4 Block Title 
+	input(type="text", placeholder="Title", ng-model="block.title")
+		
+	br
+	br
+
+	h4.pull-left Background Type 
+	select.pull-left(ng-model="block.bgType")
+		option image
+		option color
+		option gradient 
+
+	br
+	br
+
+	h4.pull-left Background 
+	input.pull-left(type="text", placeholder="Background Url", ng-model="block.bg")
+		
+	br
+	br
+
+	h4.pull-left Grid
+	br
+	br
+	div(ng-repeat="item in block.grid")	
+		p.pull-left Title	
+		input.pull-left(ng-model="item.title")
+		p.pull-left Text Content 
+		textarea.pull-left(ng-model="item.textContent")
+		p.pull-left Image URL 
+		input.pull-left(ng-model="item.url")
+		.btn.btn-default.pull-left(ng-click="deleteItem($index)") Delete
+		br
+		br
+		br
+		br
+	
+	.btn.btn-default(ng-click="addItem()") Add Item
+	
+	br
+	br
+
+	.btn.btn-default(ng-click="saveBlock()") Save

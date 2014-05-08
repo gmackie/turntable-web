@@ -1,0 +1,31 @@
+<navbar title="Choose A Theme"></navbar>
+<div id="new-website" class="container app-container">
+  <div ng-show="showThemes" class="themes row">
+    <div ng-repeat="theme in themes" class="theme col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <div><img src="/images/473e31d3.theme-temp.png" alt="theme pic">
+        <button type="button" ng-click="selectTheme(theme)" class="btn btn-lg btn-default">Select Theme</button>
+      </div>
+    </div>
+  </div>
+  <div ng-hide="showThemes" class="signup-info">
+    <div class="signup-error">{{error}}</div>
+    <form ng-submit="attemptSignup()">
+      <input type="email" placeholder="Email address" autocorrect="off" autocapitalize="off" ng-model="email" class="form-control">
+      <div class="input-group">
+        <input type="password" placeholder="Password" autocorrect="off" autocapitalize="off" ng-model="password" ng-hide="showPword" class="form-control">
+        <input type="text" placeholder="Password" autocorrect="off" autocapitalize="off" ng-model="password" ng-show="showPword" class="form-control"><span class="input-group-btn">
+          <button type="button" ng-click="showPword = !showPword" class="btn btn-default">{{showPword ? "hide" : "show"}}</button></span>
+      </div>
+      <div class="input-group">
+        <input type="text" disabled="disabled" placeholder="Theme" autocorrect="off" autocapitalize="off" ng-model="siteTheme" class="form-control"><span class="input-group-btn">
+          <button type="button" ng-click="toggleShowThemes()" class="btn btn-default">Change</button></span>
+      </div>
+      <div class="input-group input-group-bottom">
+        <input type="text" placeholder="Raftee Url" autocorrect="off" autocapitalize="off" ng-model="rafteeUrl" class="form-control"><span class="input-group-addon">.raftee.com	</span>
+      </div>
+      <p>Add Your Own Domain Later</p>
+      <button type="submit" ng-disabled="signupLoading" class="btn btn-lg btn-primary btn-block"> <span ng-hide="signupLoading">Complete Signup </span><i ng-show="signupLoading" class="fa-spinner fa-spin"> </i><span ng-show="signupLoading"> Trying to signup...	</span>
+      </button>
+    </form>
+  </div>
+</div>

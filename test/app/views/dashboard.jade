@@ -1,0 +1,6 @@
+navbar(title="Dashboard")
+
+#dashboard.container.app-container
+	ul
+		li(ng-repeat="domain in domains")
+			a(href="/#/editor/{{domain.domain}}") {{domain.domain}} — Edit

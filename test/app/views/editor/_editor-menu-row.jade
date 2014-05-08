@@ -1,0 +1,15 @@
+.menu-contents
+	i.fa.fa-bars.pull-left
+	.text-content.pull-left(ng-click="editMenuName()", ng-hide="block.menuNameVis") {{block.menuName}}
+	input.text-content.pull-left(ng-model="block.menuName", ng-show="block.menuNameVis")
+	i.fa.fa-check.pull-right(ng-click="hideEditMenuName()", ng-show="block.menuNameVis", tooltip-placement="right", tooltip="Save", tooltip-popup-delay='500' )
+	i.fa.fa-times.pull-right(ng-click="block.delConfModalVis = true", ng-hide="block.menuNameVis", tooltip-placement="right",tooltip="Remove",tooltip-popup-delay='500')
+
+	.mini-modal(ng-show="block.delConfModalVis")
+		.modal-text-content
+			span Please confirm that you want to delete this block?
+		.btn.btn-danger.btn-confirm.pull-right(ng-click="removeBlock($parent.$index, $index)") Delete Block
+		.btn.btn-cancel.pull-right(ng-click="block.delConfModalVis = false") Cancel 
+	
+	.modal-screen-overlay(ng-click="block.delConfModalVis = false", ng-show="block.delConfModalVis")
+

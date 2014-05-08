@@ -1,0 +1,16 @@
+.navbar.navbar-default-inverted.navbar-fixed-top(role="navigation", class="{{zNone ? 'no-z-index':''}}")
+	.navbar-inner
+		.navbar-header.pull-left
+			a(href="#/{{headerurl}}")
+				i.fa.fa-angle-left.pull-left(ng-show="showback")
+				.hidden-logo-spacer.pull-left(ng-show="hidelogo")
+				.navbar-logo.pull-left(ng-hide="hidelogo")
+					h1 
+						span(ng-show="false") Title 
+				.navbar-brand.pull-left {{brandText ? brandText : 'Title'}}
+					
+		.navbar-rightside.pull-right
+			a.logout.pull-right(ng-show="showLogout", ng-click="logout()") Logout
+			a.logout.pull-right(ng-show="showLogout", href="#/user/settings") Account Settings
+					
+		.navbar-title {{title}}

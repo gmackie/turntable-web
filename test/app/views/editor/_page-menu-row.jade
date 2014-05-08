@@ -1,0 +1,15 @@
+.page-info.page-row.menu-row
+	i.fa.fa-file-o.pull-left(ng-click="$parent.visiblePage = $index")
+	div.text-content.pull-left(ng-click="editPage()", ng-hide="page.nameVis", class="cursor-{{$parent.visiblePage === $index ? 'text':'pointer'}}") {{page.name}}
+	input.text-content.pull-left(ng-model="page.name", ng-show="page.nameVis")
+	i.fa.fa-check.pull-right(ng-click="hideEditPageName()", ng-show="page.nameVis", tooltip-placement="right", tooltip="Save", tooltip-popup-delay='500' )
+	i.fa.fa-cog.pull-left(ng-click="editPageSettings(page)", ng-hide="true",  tooltip-placement="right", tooltip="Settings", tooltip-popup-delay='500')
+	i.fa.fa-times.pull-right(ng-click="page.delConfModalVis = true", ng-hide="page.nameVis", tooltip-placement="right", tooltip="Remove", tooltip-popup-delay='500')
+
+	.mini-modal(ng-show="page.delConfModalVis")
+		.modal-text-content
+			span Please confirm that you want to delete this page?
+		.btn.btn-danger.btn-confirm.pull-right(ng-click="removePage($index)") Delete Page
+		.btn.btn-cancel.pull-right(ng-click="page.delConfModalVis = false") Cancel 
+	
+	.modal-screen-overlay(ng-click="page.delConfModalVis = false", ng-show="page.delConfModalVis")

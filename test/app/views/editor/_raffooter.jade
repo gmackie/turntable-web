@@ -1,0 +1,47 @@
+.raf-block
+	h1 Footer
+	
+	p.pull-left Footer Page Links 
+	select(ng-model="domain.footer.pageLinks")
+		option true
+		option false
+
+	br
+	br
+
+	p.pull-left Footer Theme 
+	select(ng-model="domain.footer.theme")
+		option light
+		option dark
+
+	br
+	br
+	
+	p.pull-left Fb URL 
+	input.pull-left(placeholder="FB URL", ng-model="domain.footer.fbLink")
+
+	br
+	br
+		
+	p.pull-left Twitter URL 
+	input.pull-left(placeholder="Twitter URL", ng-model="domain.footer.twtLink")
+
+	br
+	br
+	
+	p.pull-left Public Email Address 
+	input.pull-left(placeholder="Email Address", ng-model="domain.footer.emailLink")
+
+	br
+	br
+	
+	p.pull-left Footer Text of your choice 
+	textarea.pull-left(placeholder="Anything you want to say", ng-model="domain.footer.textbox")
+
+	br
+	br
+	br
+	br
+	
+	.btn.btn-default(ng-click="saveFooter()") Save
+
