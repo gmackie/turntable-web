@@ -2,7 +2,7 @@
 
 angular.module('angFireApp.config', []);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl: 'views/dashboard.html',
@@ -31,6 +31,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		controller:'UserSettingsCtrl'
 	})
 	.otherwise({redirectTo: '/'});
+
+	//Remove # from URL
+	$locationProvider.html5Mode(true);
+
 }])
 .constant('loginRedirectPath', '/login') 
 .constant('FBURL', 'https://angularfirestartdemo.firebaseio.com/')
