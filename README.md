@@ -16,7 +16,10 @@ Includes:
 - Less
 
 ### Programs Needed ###
-Node, NPM, Yo, Grunt, Bower
+- Node
+- NPM
+- Grunt
+- Bower
 
 ### Local Setup ###
 - npm install
