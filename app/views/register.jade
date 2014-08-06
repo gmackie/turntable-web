@@ -1,37 +1,35 @@
 navbar
 
 #register.container.app-container
-	.col-xs-offset-0.col-sm-offset-1.col-md-offset-1.col-xs-12.col-sm-4.col-md-4.col-lg-4
-		h2 Create your account
-		
-		form(role="form", ng-submit="createAccount()")
-			
-			.form-group
-				input.form-control(placeholder="Full Name", type="text", ng-model="name")
-					
-			.form-group
-				input.form-control(placeholder="Email", name="email", ng-model="email")
-					
-			.form-group
-				input.form-control(placeholder="Password", type="password", ng-model="pass")
-					
-			.form-group
-				input.form-control(placeholder="Confirm Password", type="password", ng-model="confirm")
+    form.form-signin(role="form", ng-submit="createAccount()")
+      h2.form-signin-heading Create your account
+      
+      .form-group
+        input.form-control(placeholder="Full Name", type="text", ng-model="name")
+          
+      .form-group
+        input.form-control(placeholder="Email", name="email", ng-model="email")
+          
+      .form-group
+        input.form-control(placeholder="Password", type="password", ng-model="pass")
+          
+      .form-group
+        input.form-control(placeholder="Confirm Password", type="password", ng-model="confirm")
 
-			//- TODO: implement loading
-			button(type="submit", ng-disabled="newAcctLoading").btn.btn-lg.btn-primary.btn-block 
-				span(ng-hide="newAcctLoading") Create Account
-				i(ng-show="newAcctLoading").fa.fa-spinner.fa-spin 
-				span(ng-show="newAcctLoading")  Trying to register...	
+      //- TODO: implement loading
+      button(type="submit", ng-disabled="newAcctLoading").btn.btn-lg.btn-primary.btn-block 
+        span(ng-hide="newAcctLoading") Create Account
+        i(ng-show="newAcctLoading").fa.fa-spinner.fa-spin 
+        span(ng-show="newAcctLoading")  Trying to register... 
 
-		.text-error-container	
-			p.text-danger {{err}}
-	
-		p.other-links
-		p Already have an account? 
-			a(href="#/login") Sign in
+      .text-error-container 
+        p.text-danger {{err}}
+  
+      p.other-links
+      p Already have an account? 
+        a(href="#/login") Sign in
 
-		p.other-links
-			a(href='#/forgot') I forgot my Password
+      p.other-links
+        a(href='#/forgot') I forgot my Password
 
 

@@ -7,7 +7,7 @@ var mountFolder = function (connect, dir) {
 module.exports = function (grunt) {
 	// load all grunt tasks
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
+  var urlReWrite = require('./grunt-connect-rewrite');
 	// configurable paths
 	var yeomanConfig = {
 		app: 'app',
@@ -48,12 +48,20 @@ module.exports = function (grunt) {
 				debug: true,
 				port: 9001,
 				// Change this to '0.0.0.0' to access the server from outside.
-				hostname: '0.0.0.0'
-			},
+				hostname: '0.0.0.0',
+        middleware: function(connect, options) {
+          return [
+            //urlReWrite('dist','index.html'),
+            connect.static(options.base),
+            connect.directory(options.base)
+          ];
+        }
+      },
 			livereload: {
 				options: {
 					middleware: function (connect) {
 						return [
+             // urlReWrite('dist','index.html'),
 							lrSnippet,
 							mountFolder(connect, '.tmp'),
 							mountFolder(connect, yeomanConfig.dist)

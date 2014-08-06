@@ -1,9 +1,42 @@
-div.container-fluid
+navbar
+div.container
   div.row
-    div.col-sm-3.col-md-3.sidebar
+    div.col-sm-3.col-md-3
+      script(src="http://dongs.in/jplayer/js/jquery.jplayer.min.js")
+      script(type="text/javascript").
+        jQuery(document).ready(function($) {
+          $("#jquery_jplayer_1").jPlayer({
+            ready: function(event) {
+              $(this).jPlayer('setMedia', {
+                mp3: 'http://turntable.dongs.in:8000/stream',
+              }); 
+              $(this).jPlayer('play');
+            },
+            solution: 'flash, html',
+            swfPath: 'http://dongs.in/jplayer/lib',
+            supplied: 'mp3',
+            keyEnabled: true,
+            preload: "none",
+            wmode: 'window'
+          });
+          console.log("TRYING TO DO TI!");
+        });
+      div#jquery_jplayer_1.jp-jplayer
+      div#jp_container_1.jp-audio-stream
+        div.jp-type-single
+          div.jp-gui.jp-interface
+            ul.jp-controls
+              li
+                a.jp-mute(href="javascript:;", tabindex="1", title="mute") mute
+              li
+                a.jp-unmute(href="javascript:;", tabindex="1", title="unmute") unmute
+              li
+                a.jp-volume-max(href="javascript:;", tabindex="1", title="max volume") max volume
+          .jp-volume-bar
+            .jp-volume-bar-value
       ul.nav.nav-tabs(role='tablist')
         li
-          a(href='#') Room List
+          a.active(href='#') Room List
         li
           a(href='#') Room
         li

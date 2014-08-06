@@ -13,6 +13,11 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
 		authRequired: true,
 		controller:'TurntableCtrl'
 	})
+	.when('/dashboard', {
+		templateUrl: 'views/dashboard.html',
+		authRequired: true,
+		controller:'DashboardCtrl'
+	})
 	.when('/login', {
 		templateUrl: 'views/login.html',
 		controller:'LoginCtrl'

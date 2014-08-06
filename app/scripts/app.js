@@ -8,6 +8,7 @@ var app = angular.module('angFireApp', [
 	
 	'angFireApp.controllers.cover',
 	'angFireApp.controllers.turntable',
+	'angFireApp.controllers.dashboard',
 	'angFireApp.controllers.login',
 	'angFireApp.controllers.register',
 	'angFireApp.controllers.forgot',
