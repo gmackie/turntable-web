@@ -5,9 +5,13 @@ angular.module('angFireApp.config', []);
 app.config(['$routeProvider','$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'views/dashboard.html',
+		templateUrl: 'views/cover.html',
+		controller:'CoverCtrl'
+	})
+	.when('/turntable', {
+		templateUrl: 'views/turntable.html',
 		authRequired: true,
-		controller:'DashboardCtrl'
+		controller:'TurntableCtrl'
 	})
 	.when('/login', {
 		templateUrl: 'views/login.html',
@@ -37,7 +41,7 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
 
 }])
 .constant('loginRedirectPath', '/login') 
-.constant('FBURL', 'https://angularfirestartdemo.firebaseio.com/')
+.constant('FBURL', 'https://popping-fire-9217.firebaseio.com/')
 .run(['loginService','FBURL', '$rootScope', function(loginService, FBURL, $rootScope) {
 	$rootScope.auth = loginService.init('/login');	
 	$rootScope.FBURL = FBURL;

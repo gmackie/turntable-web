@@ -6,7 +6,8 @@ var app = angular.module('angFireApp', [
 	'ngSanitize',
 	'angFireApp.config',
 	
-	'angFireApp.controllers.dashboard',
+	'angFireApp.controllers.cover',
+	'angFireApp.controllers.turntable',
 	'angFireApp.controllers.login',
 	'angFireApp.controllers.register',
 	'angFireApp.controllers.forgot',

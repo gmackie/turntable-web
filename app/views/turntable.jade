@@ -1,0 +1,44 @@
+div.container-fluid
+  div.row
+    div.col-sm-3.col-md-3.sidebar
+      ul.nav.nav-tabs(role='tablist')
+        li
+          a(href='#') Room List
+        li
+          a(href='#') Room
+        li
+          a(href='#') Queue
+      div
+        h3.sub-header DJ Queue
+        a.list-group-item(href='#', ng-repeat='dj in djs') 
+          {{dj.name}}
+          div.pull-right
+            button.btn.btn-sm.btn-danger(type"button", ng-show='dj.name == user.name') 
+              b X
+      div
+        h4.sub-header Listeners
+        a.list-group-item(href='#', ng-repeat='listener in listeners') 
+          {{listener.name}}
+
+    //Start of content container
+    div.col-sm-9.col-sm-offset-3.col-md-9.col-md-offset-3.main
+      h1.sub-header Search:
+      input.form-control(type='text', ng-model='searchquery', placeholder='Song Name', required, autofocus)
+      div.table-responsive
+        table.table.table-striped
+          thead
+            tr
+              th Song
+              th Artist
+              th Add Song
+              th Queue Song
+          tbody
+            tr(ng-repeat='song in results')
+              td {{song.title}}
+              td {{song.artist}}
+              td
+                button.btn.btn-primary(type="button", ng-disabled='song.added') Add
+              td
+                button.btn.btn-primary(type="button", ng-disabled='song.queued') Queue
+
+
