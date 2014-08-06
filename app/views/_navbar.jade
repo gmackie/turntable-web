@@ -11,14 +11,16 @@ div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
     div.navbar-collapse.collapse
       ul.nav.navbar-nav.navbar-right
         li
-          a(href="#") Home
+          a(href="/") Home
         li
-          a(href="#", ng-show="user.loggedin") Settings
+          a(href="settings", ng-show="user.loggedin") Settings
         li
-          a(href="#", ng-show="user.loggedin") Profile
+          a(href="dashboard", ng-show="user.loggedin") Profile
         li
-          a(href="#", ng-hide="user.loggedin") Sign In
+          a(href="login", ng-hide="user.loggedin") Sign In
         li
-          a(href="#", ng-hide="user.loggedin") Sign Up
+          a(href="register", ng-hide="user.loggedin") Sign Up
         li
           a(href="#") Help
+        li
+          {{user}}
